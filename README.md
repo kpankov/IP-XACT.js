@@ -1,2 +1,2 @@
-# IP_XACT.js
-IP_XACT Editor
+# IP-XACT.js
+IP-XACT Editor
