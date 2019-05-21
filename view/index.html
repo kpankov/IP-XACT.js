@@ -106,13 +106,13 @@
 
             ipxactInfoForm.addEventListener('change', function (event) {
                 currentData.elements[0]['elements'].forEach(function (element) {
-                    if (element.name === 'ipxact:vendor')
+                    if (element.name === ipxactType + ':vendor')
                         element.elements[0].text = ipxactVendorField.value;
-                    if (element.name === 'ipxact:library')
+                    if (element.name === ipxactType + ':library')
                         element.elements[0].text = ipxactLibraryField.value;
-                    if (element.name === 'ipxact:name')
+                    if (element.name === ipxactType + ':name')
                         element.elements[0].text = ipxactNameField.value;
-                    if (element.name === 'ipxact:version')
+                    if (element.name === ipxactType + ':version')
                         element.elements[0].text = ipxactVersionField.value;
                 });
                 saveData();
@@ -137,42 +137,42 @@
                 var options = {ignoreComment: true, alwaysChildren: true};
                 currentData = convert.xml2js(xml, options);
 
-                fs.writeFileSync('ipxactTestOut.json', JSON.stringify(currentData, null, 2));
-
-                var xml2 = convert.js2xml(currentData, {spaces: 2});
-                fs.writeFileSync('ipxactTestOut.xml', xml2);
-
+                //fs.writeFileSync('ipxactTestOut.json', JSON.stringify(currentData, null, 2));
+                
+                
+                var ipxactType = "ipxact";
+                //var ipxactType = "spirit";
 
                 currentData.elements[0]['elements'].forEach(function (element) {
                     console.log(element.type + ' ' + element.name);
 
-                    if (element.name === 'ipxact:vendor')
+                    if (element.name === ipxactType + ':vendor')
                         ipxactVendorField.value = element.elements[0].text;
 
-                    if (element.name === 'ipxact:library')
+                    if (element.name === ipxactType + ':library')
                         ipxactLibraryField.value = element.elements[0].text;
 
-                    if (element.name === 'ipxact:name')
+                    if (element.name === ipxactType + ':name')
                         ipxactNameField.value = element.elements[0].text;
 
-                    if (element.name === 'ipxact:version')
+                    if (element.name === ipxactType + ':version')
                         ipxactVersionField.value = element.elements[0].text;
 
-                    if (element.name === 'ipxact:memoryMaps') {
+                    if (element.name === ipxactType + ':memoryMaps') {
                         element.elements.forEach(function (element2) {
                             element2.elements.forEach(function (element3) {
                                 element3.elements.forEach(function (element4) {
-                                    if (element4.name === 'ipxact:register') {
+                                    if (element4.name === ipxactType + ':register') {
                                         element4.elements.forEach(function (element5) {
-                                            if (element5.name === 'ipxact:name')
+                                            if (element5.name === ipxactType + ':name')
                                                 registerName = element5.elements[0].text;
-                                            if (element5.name === 'ipxact:description')
+                                            if (element5.name === ipxactType + ':description')
                                                 registerDesc = element5.elements[0].text;
-                                            if (element5.name === 'ipxact:addressOffset')
+                                            if (element5.name === ipxactType + ':addressOffset')
                                                 registerOffset = element5.elements[0].text;
-                                            if (element5.name === 'ipxact:size')
+                                            if (element5.name === ipxactType + ':size')
                                                 registerSize = element5.elements[0].text;
-                                            if (element5.name === 'ipxact:access')
+                                            if (element5.name === ipxactType + ':access')
                                                 registerAccess = element5.elements[0].text;
                                         });
                                         registersTableAddRow(registerName, registerOffset, registerSize);
