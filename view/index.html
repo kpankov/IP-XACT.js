@@ -1,12 +1,189 @@
 <!DOCTYPE html>
-
 <html>
     <head>
-        <title>TODO supply a title</title>
+        <title>IP-XACT.js</title>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <script src="../app/app.js"></script>
+        <script src="tabs.js"></script>
     </head>
     <body>
-        <div>TODO write content</div>
+        <div class="w3-sidebar w3-bar-block w3-light-grey w3-card" style="width:130px">
+            <h5 class="w3-bar-item">Menu</h5>
+            <button class="w3-bar-item w3-button tablink" onclick="openTab(event, 'Load')">Load File</button>
+            <button class="w3-bar-item w3-button tablink" onclick="openTab(event, 'Info')">Info</button>
+            <button class="w3-bar-item w3-button tablink" onclick="openTab(event, 'Registers')">Registers</button>
+        </div>
+
+        <div style="margin-left:130px">
+
+            <div id="Load" class="w3-container tab" style="display:none">
+                <h2>Load File</h2>
+                <form action="#">
+                    <div class="input-file-container">  
+                        <input class="input-file" id="my-file" type="file">
+                        <label tabindex="0" for="my-file" class="input-file-trigger" style="display: none;">Select a file...</label>
+                    </div>
+                </form>
+            </div>
+
+            <div id="Info" class="w3-container tab" style="display:none">
+                <h2>Info</h2>
+                <form id="ipxact_info">
+                    <table>
+                        <tbody>
+                            <tr><td><label>Vendor: </label></td><td><input type="text" id="ipxact_vendor"></td></tr>
+                            <tr><td><label>Library: </label></td><td><input type="text" id="ipxact_library"></td></tr>
+                            <tr><td><label>Name: </label></td><td><input type="text" id="ipxact_name"></td></tr>
+                            <tr><td><label>Version: </label></td><td><input type="text" id="ipxact_version"></td></tr>
+                        </tbody>
+                    </table>
+                </form>
+            </div>
+
+            <div id="Registers" class="w3-container tab" style="display:none">
+                <h2>Registers</h2>
+                <table id="registersTable" class="table-registers">
+                    <tbody>
+                        <tr><th>Name</th><th>Offset</th><th>Size</th></tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+
+        <script>
+            function registersTableAddRow(name, offset, size) {
+                // Get a reference to the table
+                var tableRef = document.getElementById("registersTable");
+
+                // Insert a row in the table at row index 0
+                var newRow = tableRef.insertRow(-1);
+
+                // Insert a cell in the row at index 0
+                var newCell0 = newRow.insertCell(0);
+                var newCell1 = newRow.insertCell(1);
+                var newCell2 = newRow.insertCell(2);
+
+                // Append a text node to the cell
+                newCell0.appendChild(document.createTextNode(name));
+                newCell1.appendChild(document.createTextNode(offset));
+                newCell2.appendChild(document.createTextNode(size));
+            }
+
+            ////////////////////////////////////////////////////////////////////
+
+            document.querySelector("html").classList.add('js');
+
+            var fileInput = document.querySelector(".input-file"),
+                    button = document.querySelector(".input-file-trigger");
+
+            button.addEventListener("keydown", function (event) {
+                if (event.keyCode == 13 || event.keyCode == 32) {
+                    fileInput.focus();
+                }
+            });
+            button.addEventListener("click", function (event) {
+                fileInput.focus();
+                return false;
+            });
+            fileInput.addEventListener("change", function (event) {
+                filePath = fileInput.files[0].path
+                loadData();
+                openTab(event, 'Info');
+            });
+
+            ////////////////////////////////////////////////////////////////////
+
+            var ipxactInfoForm = document.getElementById("ipxact_info");
+            var ipxactVendorField = document.getElementById("ipxact_vendor");
+            var ipxactLibraryField = document.getElementById("ipxact_library");
+            var ipxactNameField = document.getElementById("ipxact_name");
+            var ipxactVersionField = document.getElementById("ipxact_version");
+
+            ipxactInfoForm.addEventListener('change', function (event) {
+                currentData.elements[0]['elements'].forEach(function (element) {
+                    if (element.name === 'ipxact:vendor')
+                        element.elements[0].text = ipxactVendorField.value;
+                    if (element.name === 'ipxact:library')
+                        element.elements[0].text = ipxactLibraryField.value;
+                    if (element.name === 'ipxact:name')
+                        element.elements[0].text = ipxactNameField.value;
+                    if (element.name === 'ipxact:version')
+                        element.elements[0].text = ipxactVersionField.value;
+                });
+                saveData();
+            });
+
+            ////////////////////////////////////////////////////////////////////
+
+            function loadData() {
+                var xml = fs.readFileSync(filePath, 'utf8');
+                populateData(null, xml);
+            }
+
+            function saveData() {
+                var xml = convert.js2xml(currentData, {spaces: 2});
+                fs.writeFileSync(filePath, xml);
+                console.log('Saved');
+            }
+
+            function populateData(form, xml) {
+                openTab(event, 'Info');
+
+                var options = {ignoreComment: true, alwaysChildren: true};
+                currentData = convert.xml2js(xml, options);
+
+                fs.writeFileSync('ipxactTestOut.json', JSON.stringify(currentData, null, 2));
+
+                var xml2 = convert.js2xml(currentData, {spaces: 2});
+                fs.writeFileSync('ipxactTestOut.xml', xml2);
+
+
+                currentData.elements[0]['elements'].forEach(function (element) {
+                    console.log(element.type + ' ' + element.name);
+
+                    if (element.name === 'ipxact:vendor')
+                        ipxactVendorField.value = element.elements[0].text;
+
+                    if (element.name === 'ipxact:library')
+                        ipxactLibraryField.value = element.elements[0].text;
+
+                    if (element.name === 'ipxact:name')
+                        ipxactNameField.value = element.elements[0].text;
+
+                    if (element.name === 'ipxact:version')
+                        ipxactVersionField.value = element.elements[0].text;
+
+                    if (element.name === 'ipxact:memoryMaps') {
+                        element.elements.forEach(function (element2) {
+                            element2.elements.forEach(function (element3) {
+                                element3.elements.forEach(function (element4) {
+                                    if (element4.name === 'ipxact:register') {
+                                        element4.elements.forEach(function (element5) {
+                                            if (element5.name === 'ipxact:name')
+                                                registerName = element5.elements[0].text;
+                                            if (element5.name === 'ipxact:description')
+                                                registerDesc = element5.elements[0].text;
+                                            if (element5.name === 'ipxact:addressOffset')
+                                                registerOffset = element5.elements[0].text;
+                                            if (element5.name === 'ipxact:size')
+                                                registerSize = element5.elements[0].text;
+                                            if (element5.name === 'ipxact:access')
+                                                registerAccess = element5.elements[0].text;
+                                        });
+                                        registersTableAddRow(registerName, registerOffset, registerSize);
+                                        console.log(registerAccess);
+                                    }
+                                });
+                            });
+                        });
+                    }
+                });
+            }
+        </script>
     </body>
 </html>

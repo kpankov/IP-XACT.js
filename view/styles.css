@@ -1,0 +1,10 @@
+
+.table-registers {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+.table-registers td, th {
+    border: 1px solid black;
+    padding: 4px;
+}
