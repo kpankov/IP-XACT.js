@@ -1,0 +1,1255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated on 2019-02-07 10:48:14 by SIDR version 0.33 -->
+<ipxact:component
+	xmlns:vendor="Elvees"
+	xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014">
+
+	<ipxact:vendor>elvees.com</ipxact:vendor>
+	<ipxact:library>user</ipxact:library>
+	<ipxact:name>Jesd_tx</ipxact:name>
+	<ipxact:version></ipxact:version>
+
+	<ipxact:displayName>Jesd_tx</ipxact:displayName>
+	<ipxact:description>Jesd_tx</ipxact:description>
+
+	<ipxact:memoryMaps>
+		<ipxact:memoryMap>
+			<ipxact:name></ipxact:name>
+				<ipxact:addressBlock>
+					<ipxact:name>S_AXI_reg</ipxact:name>
+					<ipxact:baseAddress>'h0</ipxact:baseAddress>
+					<ipxact:range ipxact:format="long">0</ipxact:range>
+					<ipxact:width>32</ipxact:width>
+					<ipxact:usage>register</ipxact:usage> 
+					
+					<ipxact:register>
+
+						<ipxact:name>BID</ipxact:name>
+						<ipxact:displayName>Bank ID</ipxact:displayName>
+						<ipxact:description></ipxact:description>
+						<ipxact:addressOffset>'h0000</ipxact:addressOffset>
+						<ipxact:size>32</ipxact:size>
+						<ipxact:access>read-write</ipxact:access>
+						
+						
+						<ipxact:field>
+							<ipxact:name>BID</ipxact:name>
+							<ipxact:displayName></ipxact:displayName>
+							<ipxact:description>Bank ID</ipxact:description>
+							<ipxact:bitOffset>0</ipxact:bitOffset>
+							<ipxact:bitWidth>4</ipxact:bitWidth>
+							<ipxact:access>read-write</ipxact:access>
+							<ipxact:resets>
+								<ipxact:reset>
+									<ipxact:value>0</ipxact:value>
+								</ipxact:reset>
+							</ipxact:resets>
+						</ipxact:field>
+						
+					</ipxact:register>
+					
+					<ipxact:register>
+
+						<ipxact:name>DID</ipxact:name>
+						<ipxact:displayName>Device ID</ipxact:displayName>
+						<ipxact:description></ipxact:description>
+						<ipxact:addressOffset>'h0004</ipxact:addressOffset>
+						<ipxact:size>32</ipxact:size>
+						<ipxact:access>read-write</ipxact:access>
+						
+						
+						<ipxact:field>
+							<ipxact:name>DID</ipxact:name>
+							<ipxact:displayName></ipxact:displayName>
+							<ipxact:description>Device ID</ipxact:description>
+							<ipxact:bitOffset>0</ipxact:bitOffset>
+							<ipxact:bitWidth>8</ipxact:bitWidth>
+							<ipxact:access>read-write</ipxact:access>
+							<ipxact:resets>
+								<ipxact:reset>
+									<ipxact:value>0</ipxact:value>
+								</ipxact:reset>
+							</ipxact:resets>
+						</ipxact:field>
+						
+					</ipxact:register>
+					
+					<ipxact:register>
+
+						<ipxact:name>LID</ipxact:name>
+						<ipxact:displayName>Lane ID for lanes 0 to 3</ipxact:displayName>
+						<ipxact:description>It refers to the physical lane in which the logical lane will be placed. For example, if a 01 HEX is located in
+the first five bits [4:0] corresponding to LID0, that means that the link layer output will set the input
+from lane 1 in the serdes_data_i bus, to the output of lane 0 in the data_to_tl bus.</ipxact:description>
+						<ipxact:addressOffset>'h0008</ipxact:addressOffset>
+						<ipxact:size>32</ipxact:size>
+						<ipxact:access>read-write</ipxact:access>
+						
+						
+						<ipxact:field>
+							<ipxact:name>LID0</ipxact:name>
+							<ipxact:displayName></ipxact:displayName>
+							<ipxact:description></ipxact:description>
+							<ipxact:bitOffset>0</ipxact:bitOffset>
+							<ipxact:bitWidth>5</ipxact:bitWidth>
+							<ipxact:access>read-write</ipxact:access>
+							<ipxact:resets>
+								<ipxact:reset>
+									<ipxact:value>0</ipxact:value>
+								</ipxact:reset>
+							</ipxact:resets>
+						</ipxact:field>
+						
+						<ipxact:field>
+							<ipxact:name>LID1</ipxact:name>
+							<ipxact:displayName></ipxact:displayName>
+							<ipxact:description></ipxact:description>
+							<ipxact:bitOffset>5</ipxact:bitOffset>
+							<ipxact:bitWidth>5</ipxact:bitWidth>
+							<ipxact:access>read-write</ipxact:access>
+							<ipxact:resets>
+								<ipxact:reset>
+									<ipxact:value>1</ipxact:value>
+								</ipxact:reset>
+							</ipxact:resets>
+						</ipxact:field>
+						
+						<ipxact:field>
+							<ipxact:name>LID2</ipxact:name>
+							<ipxact:displayName></ipxact:displayName>
+							<ipxact:description></ipxact:description>
+							<ipxact:bitOffset>10</ipxact:bitOffset>
+							<ipxact:bitWidth>5</ipxact:bitWidth>
+							<ipxact:access>read-write</ipxact:access>
+							<ipxact:resets>
+								<ipxact:reset>
+									<ipxact:value>2</ipxact:value>
+								</ipxact:reset>
+							</ipxact:resets>
+						</ipxact:field>
+						
+						<ipxact:field>
+							<ipxact:name>LID3</ipxact:name>
+							<ipxact:displayName></ipxact:displayName>
+							<ipxact:description></ipxact:description>
+							<ipxact:bitOffset>15</ipxact:bitOffset>
+							<ipxact:bitWidth>5</ipxact:bitWidth>
+							<ipxact:access>read-write</ipxact:access>
+							<ipxact:resets>
+								<ipxact:reset>
+									<ipxact:value>3</ipxact:value>
+								</ipxact:reset>
+							</ipxact:resets>
+						</ipxact:field>
+						
+						<ipxact:field>
+							<ipxact:name>-</ipxact:name>
+							<ipxact:displayName></ipxact:displayName>
+							<ipxact:description></ipxact:description>
+							<ipxact:bitOffset>20</ipxact:bitOffset>
+							<ipxact:bitWidth>5</ipxact:bitWidth>
+							<ipxact:access>read-only</ipxact:access>
+							<ipxact:reserved>true</ipxact:reserved>
+							<ipxact:resets>
+								<ipxact:reset>
+									<ipxact:value>4</ipxact:value>
+								</ipxact:reset>
+							</ipxact:resets>
+						</ipxact:field>
+						
+						<ipxact:field>
+							<ipxact:name>-</ipxact:name>
+							<ipxact:displayName></ipxact:displayName>
+							<ipxact:description></ipxact:description>
+							<ipxact:bitOffset>25</ipxact:bitOffset>
+							<ipxact:bitWidth>5</ipxact:bitWidth>
+							<ipxact:access>read-only</ipxact:access>
+							<ipxact:reserved>true</ipxact:reserved>
+							<ipxact:resets>
+								<ipxact:reset>
+									<ipxact:value>5</ipxact:value>
+								</ipxact:reset>
+							</ipxact:resets>
+						</ipxact:field>
+						
+					</ipxact:register>
+					
+					<ipxact:register>
+
+						<ipxact:name>SUBCLASS</ipxact:name>
+						<ipxact:displayName>SUBCLASS Control</ipxact:displayName>
+						<ipxact:description>Subclass mode of operation (0, 1, or 2)</ipxact:description>
+						<ipxact:addressOffset>'h0001C</ipxact:addressOffset>
+						<ipxact:size>32</ipxact:size>
+						<ipxact:access>read-write</ipxact:access>
+						
+						
+						<ipxact:field>
+							<ipxact:name>SUBCLASS</ipxact:name>
+							<ipxact:displayName></ipxact:displayName>
+							<ipxact:description>Subclass mode of operation (0, 1, or 2)</ipxact:description>
+							<ipxact:bitOffset>0</ipxact:bitOffset>
+							<ipxact:bitWidth>3</ipxact:bitWidth>
+							<ipxact:access>read-write</ipxact:access>
+							<ipxact:resets>
+								<ipxact:reset>
+									<ipxact:value>1</ipxact:value>
+								</ipxact:reset>
+							</ipxact:resets>
+						</ipxact:field>
+						
+					</ipxact:register>
+					
+					<ipxact:register>
+
+						<ipxact:name>CF</ipxact:name>
+						<ipxact:displayName>CF Control</ipxact:displayName>
+						<ipxact:description></ipxact:description>
+						<ipxact:addressOffset>'h0020</ipxact:addressOffset>
+						<ipxact:size>32</ipxact:size>
+						<ipxact:access>read-write</ipxact:access>
+						
+						
+						<ipxact:field>
+							<ipxact:name>CF</ipxact:name>
+							<ipxact:displayName></ipxact:displayName>
+							<ipxact:description>Number of control words per converter device. (CF=0, or 1)</ipxact:description>
+							<ipxact:bitOffset>0</ipxact:bitOffset>
+							<ipxact:bitWidth>2</ipxact:bitWidth>
+							<ipxact:access>read-write</ipxact:access>
+							<ipxact:resets>
+								<ipxact:reset>
+									<ipxact:value>0</ipxact:value>
+								</ipxact:reset>
+							</ipxact:resets>
+						</ipxact:field>
+						
+						<ipxact:field>
+							<ipxact:name>CF_FIRST_LANE</ipxact:name>
+							<ipxact:displayName></ipxact:displayName>
+							<ipxact:description>Indicates lane when control words are found</ipxact:description>
+							<ipxact:bitOffset>5</ipxact:bitOffset>
+							<ipxact:bitWidth>5</ipxact:bitWidth>
+							<ipxact:access>read-write</ipxact:access>
+							<ipxact:resets>
+								<ipxact:reset>
+									<ipxact:value>0</ipxact:value>
+								</ipxact:reset>
+							</ipxact:resets>
+						</ipxact:field>
+						
+						<ipxact:field>
+							<ipxact:name>CF_FIRST_NIBBLE</ipxact:name>
+							<ipxact:displayName></ipxact:displayName>
+							<ipxact:description>If CF=1, it indicates the CF-lane’s first 4-bit nibble position of the control bits</ipxact:description>
+							<ipxact:bitOffset>10</ipxact:bitOffset>
+							<ipxact:bitWidth>8</ipxact:bitWidth>
+							<ipxact:access>read-write</ipxact:access>
+							<ipxact:resets>
+								<ipxact:reset>
+									<ipxact:value>0</ipxact:value>
+								</ipxact:reset>
+							</ipxact:resets>
+						</ipxact:field>
+						
+					</ipxact:register>
+					
+					<ipxact:register>
+
+						<ipxact:name>CS</ipxact:name>
+						<ipxact:displayName>CS Control</ipxact:displayName>
+						<ipxact:description>Number of control bits per sample (0-3)</ipxact:description>
+						<ipxact:addressOffset>'h0024</ipxact:addressOffset>
+						<ipxact:size>32</ipxact:size>
+						<ipxact:access>read-write</ipxact:access>
+						
+						
+						<ipxact:field>
+							<ipxact:name>CS</ipxact:name>
+							<ipxact:displayName></ipxact:displayName>
+							<ipxact:description>Number of control bits per sample (0-3)</ipxact:description>
+							<ipxact:bitOffset>0</ipxact:bitOffset>
+							<ipxact:bitWidth>2</ipxact:bitWidth>
+							<ipxact:access>read-write</ipxact:access>
+							<ipxact:resets>
+								<ipxact:reset>
+									<ipxact:value>0</ipxact:value>
+								</ipxact:reset>
+							</ipxact:resets>
+						</ipxact:field>
+						
+					</ipxact:register>
+					
+					<ipxact:register>
+
+						<ipxact:name>F</ipxact:name>
+						<ipxact:displayName>F Control</ipxact:displayName>
+						<ipxact:description>Number of octets per frame.
+Legal values are 0-7
+Encoding is binary value minus 1.</ipxact:description>
+						<ipxact:addressOffset>'h0028</ipxact:addressOffset>
+						<ipxact:size>32</ipxact:size>
+						<ipxact:access>read-write</ipxact:access>
+						
+						
+						<ipxact:field>
+							<ipxact:name>F</ipxact:name>
+							<ipxact:displayName></ipxact:displayName>
+							<ipxact:description>Number of octets per frame.</ipxact:description>
+							<ipxact:bitOffset>0</ipxact:bitOffset>
+							<ipxact:bitWidth>8</ipxact:bitWidth>
+							<ipxact:access>read-write</ipxact:access>
+							<ipxact:resets>
+								<ipxact:reset>
+									<ipxact:value>0</ipxact:value>
+								</ipxact:reset>
+							</ipxact:resets>
+						</ipxact:field>
+						
+					</ipxact:register>
+					
+					<ipxact:register>
+
+						<ipxact:name>K</ipxact:name>
+						<ipxact:displayName>K Control</ipxact:displayName>
+						<ipxact:description>Number of frames per multi frame.
+Legal values are 0-31.
+Encoding is binary value minus 1.</ipxact:description>
+						<ipxact:addressOffset>'h002C</ipxact:addressOffset>
+						<ipxact:size>32</ipxact:size>
+						<ipxact:access>read-write</ipxact:access>
+						
+						
+						<ipxact:field>
+							<ipxact:name>K</ipxact:name>
+							<ipxact:displayName></ipxact:displayName>
+							<ipxact:description>Number of frames per multi frame.</ipxact:description>
+							<ipxact:bitOffset>0</ipxact:bitOffset>
+							<ipxact:bitWidth>5</ipxact:bitWidth>
+							<ipxact:access>read-write</ipxact:access>
+							<ipxact:resets>
+								<ipxact:reset>
+									<ipxact:value>5'h10</ipxact:value>
+								</ipxact:reset>
+							</ipxact:resets>
+						</ipxact:field>
+						
+					</ipxact:register>
+					
+					<ipxact:register>
+
+						<ipxact:name>L</ipxact:name>
+						<ipxact:displayName>L Control</ipxact:displayName>
+						<ipxact:description>Number of lanes per converter device.
+Legal values are 0-3
+Encoding is binary value minus 1.</ipxact:description>
+						<ipxact:addressOffset>'h0030</ipxact:addressOffset>
+						<ipxact:size>32</ipxact:size>
+						<ipxact:access>read-write</ipxact:access>
+						
+						
+						<ipxact:field>
+							<ipxact:name>L</ipxact:name>
+							<ipxact:displayName></ipxact:displayName>
+							<ipxact:description>Number of lanes per converter device.</ipxact:description>
+							<ipxact:bitOffset>0</ipxact:bitOffset>
+							<ipxact:bitWidth>5</ipxact:bitWidth>
+							<ipxact:access>read-write</ipxact:access>
+							<ipxact:resets>
+								<ipxact:reset>
+									<ipxact:value>5'h3</ipxact:value>
+								</ipxact:reset>
+							</ipxact:resets>
+						</ipxact:field>
+						
+					</ipxact:register>
+					
+					<ipxact:register>
+
+						<ipxact:name>N</ipxact:name>
+						<ipxact:displayName>N Control</ipxact:displayName>
+						<ipxact:description>Converter resolution.
+Legal values are 7, 9, 11, 13, 14, and 15.
+Encoding is binary values minus 1.</ipxact:description>
+						<ipxact:addressOffset>'h0034</ipxact:addressOffset>
+						<ipxact:size>32</ipxact:size>
+						<ipxact:access>read-write</ipxact:access>
+						
+						
+						<ipxact:field>
+							<ipxact:name>N</ipxact:name>
+							<ipxact:displayName></ipxact:displayName>
+							<ipxact:description>Converter resolution.</ipxact:description>
+							<ipxact:bitOffset>0</ipxact:bitOffset>
+							<ipxact:bitWidth>5</ipxact:bitWidth>
+							<ipxact:access>read-write</ipxact:access>
+							<ipxact:resets>
+								<ipxact:reset>
+									<ipxact:value>5'hf</ipxact:value>
+								</ipxact:reset>
+							</ipxact:resets>
+						</ipxact:field>
+						
+					</ipxact:register>
+					
+					<ipxact:register>
+
+						<ipxact:name>M</ipxact:name>
+						<ipxact:displayName>M Control</ipxact:displayName>
+						<ipxact:description> Number of converters per device.
+Legal values are 0-7
+Encoding is binary value minus 1.</ipxact:description>
+						<ipxact:addressOffset>'h0038</ipxact:addressOffset>
+						<ipxact:size>32</ipxact:size>
+						<ipxact:access>read-write</ipxact:access>
+						
+						
+						<ipxact:field>
+							<ipxact:name>M</ipxact:name>
+							<ipxact:displayName></ipxact:displayName>
+							<ipxact:description>Number of converters per device.</ipxact:description>
+							<ipxact:bitOffset>0</ipxact:bitOffset>
+							<ipxact:bitWidth>8</ipxact:bitWidth>
+							<ipxact:access>read-write</ipxact:access>
+							<ipxact:resets>
+								<ipxact:reset>
+									<ipxact:value>8'h3</ipxact:value>
+								</ipxact:reset>
+							</ipxact:resets>
+						</ipxact:field>
+						
+					</ipxact:register>
+					
+					<ipxact:register>
+
+						<ipxact:name>NTOTAL</ipxact:name>
+						<ipxact:displayName>NTOTAL Control</ipxact:displayName>
+						<ipxact:description>Total number of bits per sample (N’).
+Must be an integer multiple of 4.
+Legal values are 7-15
+Encoding is binary value minus 1</ipxact:description>
+						<ipxact:addressOffset>'h003C</ipxact:addressOffset>
+						<ipxact:size>32</ipxact:size>
+						<ipxact:access>read-write</ipxact:access>
+						
+						
+						<ipxact:field>
+							<ipxact:name>NTOTAL</ipxact:name>
+							<ipxact:displayName></ipxact:displayName>
+							<ipxact:description>Total number of bits per sample (N’).</ipxact:description>
+							<ipxact:bitOffset>0</ipxact:bitOffset>
+							<ipxact:bitWidth>5</ipxact:bitWidth>
+							<ipxact:access>read-write</ipxact:access>
+							<ipxact:resets>
+								<ipxact:reset>
+									<ipxact:value>5'hf</ipxact:value>
+								</ipxact:reset>
+							</ipxact:resets>
+						</ipxact:field>
+						
+					</ipxact:register>
+					
+					<ipxact:register>
+
+						<ipxact:name>S</ipxact:name>
+						<ipxact:displayName>S Control</ipxact:displayName>
+						<ipxact:description>Number of samples per
+Converter, per frame cycle.
+Legal values are 0 to 3.
+Encoding is binary value minus 1</ipxact:description>
+						<ipxact:addressOffset>'h0040</ipxact:addressOffset>
+						<ipxact:size>32</ipxact:size>
+						<ipxact:access>read-write</ipxact:access>
+						
+						
+						<ipxact:field>
+							<ipxact:name>S</ipxact:name>
+							<ipxact:displayName></ipxact:displayName>
+							<ipxact:description>Number of samples per Converter, per frame cycle.</ipxact:description>
+							<ipxact:bitOffset>0</ipxact:bitOffset>
+							<ipxact:bitWidth>5</ipxact:bitWidth>
+							<ipxact:access>read-write</ipxact:access>
+							<ipxact:resets>
+								<ipxact:reset>
+									<ipxact:value>0</ipxact:value>
+								</ipxact:reset>
+							</ipxact:resets>
+						</ipxact:field>
+						
+					</ipxact:register>
+					
+					<ipxact:register>
+
+						<ipxact:name>HD</ipxact:name>
+						<ipxact:displayName>HD Control</ipxact:displayName>
+						<ipxact:description>High Density Format.
+0 ~ High Density format not used
+1 ~ High Density format used</ipxact:description>
+						<ipxact:addressOffset>'h0044</ipxact:addressOffset>
+						<ipxact:size>32</ipxact:size>
+						<ipxact:access>read-write</ipxact:access>
+						
+						
+						<ipxact:field>
+							<ipxact:name>HD</ipxact:name>
+							<ipxact:displayName></ipxact:displayName>
+							<ipxact:description>High Density Format.</ipxact:description>
+							<ipxact:bitOffset>0</ipxact:bitOffset>
+							<ipxact:bitWidth>1</ipxact:bitWidth>
+							<ipxact:access>read-write</ipxact:access>
+							<ipxact:resets>
+								<ipxact:reset>
+									<ipxact:value>0</ipxact:value>
+								</ipxact:reset>
+							</ipxact:resets>
+						</ipxact:field>
+						
+					</ipxact:register>
+					
+					<ipxact:register>
+
+						<ipxact:name>SCR</ipxact:name>
+						<ipxact:displayName>SCR Control</ipxact:displayName>
+						<ipxact:description>Scrambling enabled</ipxact:description>
+						<ipxact:addressOffset>'h0048</ipxact:addressOffset>
+						<ipxact:size>32</ipxact:size>
+						<ipxact:access>read-write</ipxact:access>
+						
+						
+						<ipxact:field>
+							<ipxact:name>SCR</ipxact:name>
+							<ipxact:displayName></ipxact:displayName>
+							<ipxact:description>Scrambling enabled</ipxact:description>
+							<ipxact:bitOffset>0</ipxact:bitOffset>
+							<ipxact:bitWidth>1</ipxact:bitWidth>
+							<ipxact:access>read-write</ipxact:access>
+							<ipxact:resets>
+								<ipxact:reset>
+									<ipxact:value>0</ipxact:value>
+								</ipxact:reset>
+							</ipxact:resets>
+						</ipxact:field>
+						
+					</ipxact:register>
+					
+					<ipxact:register>
+
+						<ipxact:name>ENABLEMODULE</ipxact:name>
+						<ipxact:displayName>ENABLEMODULE Control</ipxact:displayName>
+						<ipxact:description>Enable operation of the module.
+0 ~ Module disabled
+1 ~ Module enabled
+</ipxact:description>
+						<ipxact:addressOffset>'h0050</ipxact:addressOffset>
+						<ipxact:size>32</ipxact:size>
+						<ipxact:access>read-write</ipxact:access>
+						
+						
+						<ipxact:field>
+							<ipxact:name>ENABLEMODULE</ipxact:name>
+							<ipxact:displayName></ipxact:displayName>
+							<ipxact:description>Enable operation of the module.</ipxact:description>
+							<ipxact:bitOffset>0</ipxact:bitOffset>
+							<ipxact:bitWidth>1</ipxact:bitWidth>
+							<ipxact:access>read-write</ipxact:access>
+							<ipxact:resets>
+								<ipxact:reset>
+									<ipxact:value>0</ipxact:value>
+								</ipxact:reset>
+							</ipxact:resets>
+						</ipxact:field>
+						
+					</ipxact:register>
+					
+					<ipxact:register>
+
+						<ipxact:name>ENABLELINKTEST</ipxact:name>
+						<ipxact:displayName>ENABLELINKTEST Control</ipxact:displayName>
+						<ipxact:description>Enable of link layer test.
+0 ~ No link layer test performed.
+1~Transmit continuous sequence of /K28.5/ characters (LINKTEST1).
+2~Transmit code group sequence, followed by repeated lane alignment sequence (LINKTEST2).
+3 ~ No link layer test performed.</ipxact:description>
+						<ipxact:addressOffset>'h0054</ipxact:addressOffset>
+						<ipxact:size>32</ipxact:size>
+						<ipxact:access>read-write</ipxact:access>
+						
+						
+						<ipxact:field>
+							<ipxact:name>ENABLELINKTEST</ipxact:name>
+							<ipxact:displayName></ipxact:displayName>
+							<ipxact:description>Enable of link layer test.</ipxact:description>
+							<ipxact:bitOffset>0</ipxact:bitOffset>
+							<ipxact:bitWidth>2</ipxact:bitWidth>
+							<ipxact:access>read-write</ipxact:access>
+							<ipxact:resets>
+								<ipxact:reset>
+									<ipxact:value>0</ipxact:value>
+								</ipxact:reset>
+							</ipxact:resets>
+						</ipxact:field>
+						
+					</ipxact:register>
+					
+					<ipxact:register>
+
+						<ipxact:name>TAILBITS</ipxact:name>
+						<ipxact:displayName>TAILBITS Control</ipxact:displayName>
+						<ipxact:description>Control insertion of tail bits.
+0 ~ Insert ‘0’
+1 ~ Insert ‘1’
+2 ~ Insert tail bit generated from an LFSR (or other construct), that ensures low DC content.
+3 ~ Invalid (Insert ‘0’)
+</ipxact:description>
+						<ipxact:addressOffset>'h0058</ipxact:addressOffset>
+						<ipxact:size>32</ipxact:size>
+						<ipxact:access>read-write</ipxact:access>
+						
+						
+						<ipxact:field>
+							<ipxact:name>TAILBITS</ipxact:name>
+							<ipxact:displayName></ipxact:displayName>
+							<ipxact:description>Control insertion of tail bits.</ipxact:description>
+							<ipxact:bitOffset>0</ipxact:bitOffset>
+							<ipxact:bitWidth>2</ipxact:bitWidth>
+							<ipxact:access>read-write</ipxact:access>
+							<ipxact:resets>
+								<ipxact:reset>
+									<ipxact:value>0</ipxact:value>
+								</ipxact:reset>
+							</ipxact:resets>
+						</ipxact:field>
+						
+					</ipxact:register>
+					
+					<ipxact:register>
+
+						<ipxact:name>LINKTEST_CUSTOM_DATA</ipxact:name>
+						<ipxact:displayName>LINKTEST_CUSTOM_DATA Control</ipxact:displayName>
+						<ipxact:description>A 16 bit word that can be transmitted
+continuously for link layer testing
+</ipxact:description>
+						<ipxact:addressOffset>'h005C</ipxact:addressOffset>
+						<ipxact:size>32</ipxact:size>
+						<ipxact:access>read-write</ipxact:access>
+						
+						
+						<ipxact:field>
+							<ipxact:name>LINKTEST_CUSTOM_DATA</ipxact:name>
+							<ipxact:displayName></ipxact:displayName>
+							<ipxact:description>A 16 bit word that can be transmitted continuously for link layer testing</ipxact:description>
+							<ipxact:bitOffset>0</ipxact:bitOffset>
+							<ipxact:bitWidth>16</ipxact:bitWidth>
+							<ipxact:access>read-write</ipxact:access>
+							<ipxact:resets>
+								<ipxact:reset>
+									<ipxact:value>0</ipxact:value>
+								</ipxact:reset>
+							</ipxact:resets>
+						</ipxact:field>
+						
+					</ipxact:register>
+					
+					<ipxact:register>
+
+						<ipxact:name>LINKTEST_CUSTOM_ENABLE</ipxact:name>
+						<ipxact:displayName>LINKTEST_CUSTOM_ENABLE Control</ipxact:displayName>
+						<ipxact:description>Enable continued transmission of the value in LINKTEST_CUSTOM_DATA</ipxact:description>
+						<ipxact:addressOffset>'h0060</ipxact:addressOffset>
+						<ipxact:size>32</ipxact:size>
+						<ipxact:access>read-write</ipxact:access>
+						
+						
+						<ipxact:field>
+							<ipxact:name>LINKTEST_CUSTOM_ENABLE</ipxact:name>
+							<ipxact:displayName></ipxact:displayName>
+							<ipxact:description>Enable continued transmission of the value in LINKTEST_CUSTOM_DATA</ipxact:description>
+							<ipxact:bitOffset>0</ipxact:bitOffset>
+							<ipxact:bitWidth>1</ipxact:bitWidth>
+							<ipxact:access>read-write</ipxact:access>
+							<ipxact:resets>
+								<ipxact:reset>
+									<ipxact:value>0</ipxact:value>
+								</ipxact:reset>
+							</ipxact:resets>
+						</ipxact:field>
+						
+					</ipxact:register>
+					
+					<ipxact:register>
+
+						<ipxact:name>TX_FEATURE_DISABLE</ipxact:name>
+						<ipxact:displayName>TX_FEATURE_DISABLE Control</ipxact:displayName>
+						<ipxact:description>Disable features in the Tx module for compatibility with other devices.</ipxact:description>
+						<ipxact:addressOffset>'h0120</ipxact:addressOffset>
+						<ipxact:size>32</ipxact:size>
+						<ipxact:access>read-write</ipxact:access>
+						
+						
+						<ipxact:field>
+							<ipxact:name>INITIAL_LANE_ALIGNMENT</ipxact:name>
+							<ipxact:displayName></ipxact:displayName>
+							<ipxact:description>Initial lane alignment. When enabled, it will send the ILAS sequence after the sync_b is asserted. If disabled, the incoming data will be sent after the Code group synchronization. 0 ~ Enabled 1 ~ Disabled</ipxact:description>
+							<ipxact:bitOffset>0</ipxact:bitOffset>
+							<ipxact:bitWidth>1</ipxact:bitWidth>
+							<ipxact:access>read-write</ipxact:access>
+							<ipxact:resets>
+								<ipxact:reset>
+									<ipxact:value>0</ipxact:value>
+								</ipxact:reset>
+							</ipxact:resets>
+						</ipxact:field>
+						
+						<ipxact:field>
+							<ipxact:name>DISABLE_EOMF_CHAR_REP</ipxact:name>
+							<ipxact:displayName></ipxact:displayName>
+							<ipxact:description>Last multiframe character replacement. When enabled, the core will replace the character in the last multiframe with a control character according to the standard. When disabled, the core will not replace the last character in the multiframe. 0 ~ Enabled 1 ~ Disabled</ipxact:description>
+							<ipxact:bitOffset>1</ipxact:bitOffset>
+							<ipxact:bitWidth>1</ipxact:bitWidth>
+							<ipxact:access>read-write</ipxact:access>
+							<ipxact:resets>
+								<ipxact:reset>
+									<ipxact:value>0</ipxact:value>
+								</ipxact:reset>
+							</ipxact:resets>
+						</ipxact:field>
+						
+					</ipxact:register>
+					
+					<ipxact:register>
+
+						<ipxact:name>TX_CORE_INTERRUPT_MASK</ipxact:name>
+						<ipxact:displayName>TX_CORE_INTERRUPT_MASK Control</ipxact:displayName>
+						<ipxact:description>Register to hold interrupt mask bits.
+
+Bit value 0 indicates the interrupt source is unmasked.
+Bit value 1 indicates the interrupt source is masked.</ipxact:description>
+						<ipxact:addressOffset>'h0124</ipxact:addressOffset>
+						<ipxact:size>32</ipxact:size>
+						<ipxact:access>read-write</ipxact:access>
+						
+						
+						<ipxact:field>
+							<ipxact:name>Signaled_error_on_sync_b</ipxact:name>
+							<ipxact:displayName></ipxact:displayName>
+							<ipxact:description>This field controls whether an interrupt should be asserted when TX core instance decodes an error report on the Sync signal</ipxact:description>
+							<ipxact:bitOffset>0</ipxact:bitOffset>
+							<ipxact:bitWidth>1</ipxact:bitWidth>
+							<ipxact:access>read-write</ipxact:access>
+							<ipxact:resets>
+								<ipxact:reset>
+									<ipxact:value>1</ipxact:value>
+								</ipxact:reset>
+							</ipxact:resets>
+						</ipxact:field>
+						
+						<ipxact:field>
+							<ipxact:name>Signaled_resynchronization_request_on_sync_b</ipxact:name>
+							<ipxact:displayName></ipxact:displayName>
+							<ipxact:description>This field controls whether an interrupt should be asserted when TX core instance decodes a resynchronization request on the Sync signal</ipxact:description>
+							<ipxact:bitOffset>1</ipxact:bitOffset>
+							<ipxact:bitWidth>1</ipxact:bitWidth>
+							<ipxact:access>read-write</ipxact:access>
+							<ipxact:resets>
+								<ipxact:reset>
+									<ipxact:value>1</ipxact:value>
+								</ipxact:reset>
+							</ipxact:resets>
+						</ipxact:field>
+						
+						<ipxact:field>
+							<ipxact:name>Detected_under_run_in_TX_datapath</ipxact:name>
+							<ipxact:displayName></ipxact:displayName>
+							<ipxact:description>This field controls whether an interrupt should be asserted when TX core instance internal modules have an under run condition</ipxact:description>
+							<ipxact:bitOffset>2</ipxact:bitOffset>
+							<ipxact:bitWidth>1</ipxact:bitWidth>
+							<ipxact:access>read-write</ipxact:access>
+							<ipxact:resets>
+								<ipxact:reset>
+									<ipxact:value>1</ipxact:value>
+								</ipxact:reset>
+							</ipxact:resets>
+						</ipxact:field>
+						
+						<ipxact:field>
+							<ipxact:name>Detected_over_run_in_TX_datapath</ipxact:name>
+							<ipxact:displayName></ipxact:displayName>
+							<ipxact:description>This field controls whether an interrupt should be asserted when TX core instance internal modules have an overrun condition</ipxact:description>
+							<ipxact:bitOffset>3</ipxact:bitOffset>
+							<ipxact:bitWidth>1</ipxact:bitWidth>
+							<ipxact:access>read-write</ipxact:access>
+							<ipxact:resets>
+								<ipxact:reset>
+									<ipxact:value>1</ipxact:value>
+								</ipxact:reset>
+							</ipxact:resets>
+						</ipxact:field>
+						
+						<ipxact:field>
+							<ipxact:name>Reserved</ipxact:name>
+							<ipxact:displayName></ipxact:displayName>
+							<ipxact:description>Reserved</ipxact:description>
+							<ipxact:bitOffset>4</ipxact:bitOffset>
+							<ipxact:bitWidth>28</ipxact:bitWidth>
+							<ipxact:access>read-only</ipxact:access>
+							<ipxact:resets>
+								<ipxact:reset>
+									<ipxact:value>0</ipxact:value>
+								</ipxact:reset>
+							</ipxact:resets>
+						</ipxact:field>
+						
+					</ipxact:register>
+					
+					<ipxact:register>
+
+						<ipxact:name>TX_CORE_INTERRUPT_STATUS</ipxact:name>
+						<ipxact:displayName>TX_CORE_INTERRUPT_STATUS Control</ipxact:displayName>
+						<ipxact:description>Register to hold interrupt status bits.
+
+Similar to TX_CORE_INTERRUPT_MASK, except the fields are status fields of
+RC type which are set by the hardware in TX_CORE</ipxact:description>
+						<ipxact:addressOffset>'h0128</ipxact:addressOffset>
+						<ipxact:size>32</ipxact:size>
+						<ipxact:access>read-only</ipxact:access>
+						
+						
+						<ipxact:field>
+							<ipxact:name>Signaled_error_on_sync_b</ipxact:name>
+							<ipxact:displayName></ipxact:displayName>
+							<ipxact:description>This field controls whether an interrupt should be asserted when TX core instance decodes an error report on the Sync signal</ipxact:description>
+							<ipxact:bitOffset>0</ipxact:bitOffset>
+							<ipxact:bitWidth>1</ipxact:bitWidth>
+							<ipxact:access>read-only</ipxact:access>
+							<ipxact:resets>
+								<ipxact:reset>
+									<ipxact:value>0</ipxact:value>
+								</ipxact:reset>
+							</ipxact:resets>
+						</ipxact:field>
+						
+						<ipxact:field>
+							<ipxact:name>Signaled_resynchronization_request_on_sync_b</ipxact:name>
+							<ipxact:displayName></ipxact:displayName>
+							<ipxact:description>This field controls whether an interrupt should be asserted when TX core instance decodes a resynchronization request on the Sync signal</ipxact:description>
+							<ipxact:bitOffset>1</ipxact:bitOffset>
+							<ipxact:bitWidth>1</ipxact:bitWidth>
+							<ipxact:access>read-only</ipxact:access>
+							<ipxact:resets>
+								<ipxact:reset>
+									<ipxact:value>0</ipxact:value>
+								</ipxact:reset>
+							</ipxact:resets>
+						</ipxact:field>
+						
+						<ipxact:field>
+							<ipxact:name>Detected_under_run_in_TX_datapath</ipxact:name>
+							<ipxact:displayName></ipxact:displayName>
+							<ipxact:description>This field controls whether an interrupt should be asserted when TX core instance internal modules have an under run condition</ipxact:description>
+							<ipxact:bitOffset>2</ipxact:bitOffset>
+							<ipxact:bitWidth>1</ipxact:bitWidth>
+							<ipxact:access>read-only</ipxact:access>
+							<ipxact:resets>
+								<ipxact:reset>
+									<ipxact:value>0</ipxact:value>
+								</ipxact:reset>
+							</ipxact:resets>
+						</ipxact:field>
+						
+						<ipxact:field>
+							<ipxact:name>Detected_over_run_in_TX_datapath</ipxact:name>
+							<ipxact:displayName></ipxact:displayName>
+							<ipxact:description>This field controls whether an interrupt should be asserted when TX core instance internal modules have an overrun condition</ipxact:description>
+							<ipxact:bitOffset>3</ipxact:bitOffset>
+							<ipxact:bitWidth>1</ipxact:bitWidth>
+							<ipxact:access>read-only</ipxact:access>
+							<ipxact:resets>
+								<ipxact:reset>
+									<ipxact:value>0</ipxact:value>
+								</ipxact:reset>
+							</ipxact:resets>
+						</ipxact:field>
+						
+						<ipxact:field>
+							<ipxact:name>Reserved</ipxact:name>
+							<ipxact:displayName></ipxact:displayName>
+							<ipxact:description>Reserved</ipxact:description>
+							<ipxact:bitOffset>4</ipxact:bitOffset>
+							<ipxact:bitWidth>28</ipxact:bitWidth>
+							<ipxact:access>read-only</ipxact:access>
+							<ipxact:resets>
+								<ipxact:reset>
+									<ipxact:value>0</ipxact:value>
+								</ipxact:reset>
+							</ipxact:resets>
+						</ipxact:field>
+						
+					</ipxact:register>
+					
+					<ipxact:register>
+
+						<ipxact:name>TX_ILAS_AND_MISC_DETAILS</ipxact:name>
+						<ipxact:displayName>TX_ILAS_AND_MISC_DETAILS Control</ipxact:displayName>
+						<ipxact:description>Register to hold details of ILAS length and RBD information</ipxact:description>
+						<ipxact:addressOffset>'h012C</ipxact:addressOffset>
+						<ipxact:size>32</ipxact:size>
+						<ipxact:access>read-write</ipxact:access>
+						
+						
+						<ipxact:field>
+							<ipxact:name>MULTIFRAME_LENGTH_OCTETS</ipxact:name>
+							<ipxact:displayName></ipxact:displayName>
+							<ipxact:description>This field gives the length of multi frame in terms of octets</ipxact:description>
+							<ipxact:bitOffset>0</ipxact:bitOffset>
+							<ipxact:bitWidth>11</ipxact:bitWidth>
+							<ipxact:access>read-write</ipxact:access>
+							<ipxact:resets>
+								<ipxact:reset>
+									<ipxact:value>11'h11</ipxact:value>
+								</ipxact:reset>
+							</ipxact:resets>
+						</ipxact:field>
+						
+						<ipxact:field>
+							<ipxact:name>ADJCNT</ipxact:name>
+							<ipxact:displayName></ipxact:displayName>
+							<ipxact:description>Value to be transmitted as part of ILAS multiframe 2</ipxact:description>
+							<ipxact:bitOffset>12</ipxact:bitOffset>
+							<ipxact:bitWidth>4</ipxact:bitWidth>
+							<ipxact:access>read-write</ipxact:access>
+							<ipxact:resets>
+								<ipxact:reset>
+									<ipxact:value>0</ipxact:value>
+								</ipxact:reset>
+							</ipxact:resets>
+						</ipxact:field>
+						
+						<ipxact:field>
+							<ipxact:name>ADJDIR</ipxact:name>
+							<ipxact:displayName></ipxact:displayName>
+							<ipxact:description>Value to be transmitted as part of ILAS multiframe 2</ipxact:description>
+							<ipxact:bitOffset>16</ipxact:bitOffset>
+							<ipxact:bitWidth>1</ipxact:bitWidth>
+							<ipxact:access>read-write</ipxact:access>
+							<ipxact:resets>
+								<ipxact:reset>
+									<ipxact:value>0</ipxact:value>
+								</ipxact:reset>
+							</ipxact:resets>
+						</ipxact:field>
+						
+						<ipxact:field>
+							<ipxact:name>PHADJ</ipxact:name>
+							<ipxact:displayName></ipxact:displayName>
+							<ipxact:description>Value to be transmitted as part of ILAS multiframe 2</ipxact:description>
+							<ipxact:bitOffset>17</ipxact:bitOffset>
+							<ipxact:bitWidth>1</ipxact:bitWidth>
+							<ipxact:access>read-write</ipxact:access>
+							<ipxact:resets>
+								<ipxact:reset>
+									<ipxact:value>0</ipxact:value>
+								</ipxact:reset>
+							</ipxact:resets>
+						</ipxact:field>
+						
+						<ipxact:field>
+							<ipxact:name>Sync_b_lh_to_lmfc</ipxact:name>
+							<ipxact:displayName></ipxact:displayName>
+							<ipxact:description>Clock cycles left from the sync_b until the next local multiframe clock boundary.</ipxact:description>
+							<ipxact:bitOffset>18</ipxact:bitOffset>
+							<ipxact:bitWidth>6</ipxact:bitWidth>
+							<ipxact:access>read-only</ipxact:access>
+							<ipxact:resets>
+								<ipxact:reset>
+									<ipxact:value>0</ipxact:value>
+								</ipxact:reset>
+							</ipxact:resets>
+						</ipxact:field>
+						
+						<ipxact:field>
+							<ipxact:name>NUM_MULTIFRAMES_IN_ILAS</ipxact:name>
+							<ipxact:displayName></ipxact:displayName>
+							<ipxact:description>Number of multi frames in ILAS. Legal values are 3 to 255</ipxact:description>
+							<ipxact:bitOffset>24</ipxact:bitOffset>
+							<ipxact:bitWidth>8</ipxact:bitWidth>
+							<ipxact:access>read-write</ipxact:access>
+							<ipxact:resets>
+								<ipxact:reset>
+									<ipxact:value>8'h3</ipxact:value>
+								</ipxact:reset>
+							</ipxact:resets>
+						</ipxact:field>
+						
+					</ipxact:register>
+					
+					<ipxact:register>
+
+						<ipxact:name>PRBS_TEST_ENABLE</ipxact:name>
+						<ipxact:displayName>PRBS_TEST_ENABLE Control</ipxact:displayName>
+						<ipxact:description> Enable PRBS testing for individual links.</ipxact:description>
+						<ipxact:addressOffset>'h0134</ipxact:addressOffset>
+						<ipxact:size>32</ipxact:size>
+						<ipxact:access>read-write</ipxact:access>
+						
+						
+						<ipxact:field>
+							<ipxact:name>PRBS_TEST_ENABLE_0</ipxact:name>
+							<ipxact:displayName></ipxact:displayName>
+							<ipxact:description>Enable PRBS test for link 0</ipxact:description>
+							<ipxact:bitOffset>0</ipxact:bitOffset>
+							<ipxact:bitWidth>1</ipxact:bitWidth>
+							<ipxact:access>read-write</ipxact:access>
+							<ipxact:resets>
+								<ipxact:reset>
+									<ipxact:value>0</ipxact:value>
+								</ipxact:reset>
+							</ipxact:resets>
+						</ipxact:field>
+						
+						<ipxact:field>
+							<ipxact:name>PRBS_TEST_ENABLE_1</ipxact:name>
+							<ipxact:displayName></ipxact:displayName>
+							<ipxact:description>Enable PRBS test for link 1</ipxact:description>
+							<ipxact:bitOffset>1</ipxact:bitOffset>
+							<ipxact:bitWidth>1</ipxact:bitWidth>
+							<ipxact:access>read-write</ipxact:access>
+							<ipxact:resets>
+								<ipxact:reset>
+									<ipxact:value>0</ipxact:value>
+								</ipxact:reset>
+							</ipxact:resets>
+						</ipxact:field>
+						
+						<ipxact:field>
+							<ipxact:name>PRBS_TEST_ENABLE_2</ipxact:name>
+							<ipxact:displayName></ipxact:displayName>
+							<ipxact:description>Enable PRBS test for link 2</ipxact:description>
+							<ipxact:bitOffset>2</ipxact:bitOffset>
+							<ipxact:bitWidth>1</ipxact:bitWidth>
+							<ipxact:access>read-write</ipxact:access>
+							<ipxact:resets>
+								<ipxact:reset>
+									<ipxact:value>0</ipxact:value>
+								</ipxact:reset>
+							</ipxact:resets>
+						</ipxact:field>
+						
+						<ipxact:field>
+							<ipxact:name>PRBS_TEST_ENABLE_3</ipxact:name>
+							<ipxact:displayName></ipxact:displayName>
+							<ipxact:description>Enable PRBS test for link 3</ipxact:description>
+							<ipxact:bitOffset>3</ipxact:bitOffset>
+							<ipxact:bitWidth>1</ipxact:bitWidth>
+							<ipxact:access>read-write</ipxact:access>
+							<ipxact:resets>
+								<ipxact:reset>
+									<ipxact:value>0</ipxact:value>
+								</ipxact:reset>
+							</ipxact:resets>
+						</ipxact:field>
+						
+					</ipxact:register>
+					
+					<ipxact:register>
+
+						<ipxact:name>JTSPAT_TEST_ENABLE</ipxact:name>
+						<ipxact:displayName>JTSPAT_TEST_ENABLE Control</ipxact:displayName>
+						<ipxact:description>Enable JTSPAT analyzing for individual links.
+0 ~ No JTSPAT test performed.
+1 ~ JTSPAT test performed.</ipxact:description>
+						<ipxact:addressOffset>'h0138</ipxact:addressOffset>
+						<ipxact:size>32</ipxact:size>
+						<ipxact:access>read-write</ipxact:access>
+						
+						
+						<ipxact:field>
+							<ipxact:name>JTSPAT_TEST_ENABLE_0</ipxact:name>
+							<ipxact:displayName></ipxact:displayName>
+							<ipxact:description>Enable JTSPAT test for link 0</ipxact:description>
+							<ipxact:bitOffset>0</ipxact:bitOffset>
+							<ipxact:bitWidth>1</ipxact:bitWidth>
+							<ipxact:access>read-write</ipxact:access>
+							<ipxact:resets>
+								<ipxact:reset>
+									<ipxact:value>0</ipxact:value>
+								</ipxact:reset>
+							</ipxact:resets>
+						</ipxact:field>
+						
+					</ipxact:register>
+					
+					<ipxact:register>
+
+						<ipxact:name>CLK_RATIO</ipxact:name>
+						<ipxact:displayName>CLK_RATIO Control</ipxact:displayName>
+						<ipxact:description> Ratio between the clk_sample and clk_character
+“00”: clk_sample is equal to clk_character
+“01”: clk_sample equals 2 * clk_character
+“10”: clk_sample equals 4 * clk_character
+“11”: clk_sample equals 8 * clk_character</ipxact:description>
+						<ipxact:addressOffset>'h013C</ipxact:addressOffset>
+						<ipxact:size>32</ipxact:size>
+						<ipxact:access>read-write</ipxact:access>
+						
+						
+						<ipxact:field>
+							<ipxact:name>CLK_RATIO</ipxact:name>
+							<ipxact:displayName></ipxact:displayName>
+							<ipxact:description>Ratio between the clk_sample and clk_character</ipxact:description>
+							<ipxact:bitOffset>0</ipxact:bitOffset>
+							<ipxact:bitWidth>2</ipxact:bitWidth>
+							<ipxact:access>read-write</ipxact:access>
+							<ipxact:resets>
+								<ipxact:reset>
+									<ipxact:value>0</ipxact:value>
+								</ipxact:reset>
+							</ipxact:resets>
+						</ipxact:field>
+						
+					</ipxact:register>
+					
+					<ipxact:register>
+
+						<ipxact:name>TX_ILAS_DELAY</ipxact:name>
+						<ipxact:displayName>TX_ILAS_DELAY Control</ipxact:displayName>
+						<ipxact:description>Defines the delay from initial sample requests on the TX sample interface until the link layer requests the first frame from the transport layer. The resolution is clk_character cycles. A rough formula is:
+F=1 - delay must be set to 4
+F=2 - delay must be set to 6
+F=3 - delay must be set to 8
+F>3 - delay must be 8 + F.
+
+For F>3 the value may need fine tuning, especially if the ratio between clk_character and clk_sample is not 1:1. It should work in most cases, though.
+The user is encouraged to verify the setting in simulations for specific cases.</ipxact:description>
+						<ipxact:addressOffset>'h02C0</ipxact:addressOffset>
+						<ipxact:size>32</ipxact:size>
+						<ipxact:access>read-write</ipxact:access>
+						
+						
+						<ipxact:field>
+							<ipxact:name>TX_ILAS_DELAY</ipxact:name>
+							<ipxact:displayName></ipxact:displayName>
+							<ipxact:description>Delay from initial sample requests</ipxact:description>
+							<ipxact:bitOffset>0</ipxact:bitOffset>
+							<ipxact:bitWidth>7</ipxact:bitWidth>
+							<ipxact:access>read-write</ipxact:access>
+							<ipxact:resets>
+								<ipxact:reset>
+									<ipxact:value>4</ipxact:value>
+								</ipxact:reset>
+							</ipxact:resets>
+						</ipxact:field>
+						
+					</ipxact:register>
+					
+					<ipxact:register>
+
+						<ipxact:name>SOFT_SYNC</ipxact:name>
+						<ipxact:displayName>SOFT_SYNC Control</ipxact:displayName>
+						<ipxact:description>Soft Sync
+0 ~ Soft sync not used
+1 ~ Soft sync used</ipxact:description>
+						<ipxact:addressOffset>'h02D0</ipxact:addressOffset>
+						<ipxact:size>32</ipxact:size>
+						<ipxact:access>read-write</ipxact:access>
+						
+						
+						<ipxact:field>
+							<ipxact:name>Soft_Sync</ipxact:name>
+							<ipxact:displayName></ipxact:displayName>
+							<ipxact:description>Soft Sync Control</ipxact:description>
+							<ipxact:bitOffset>0</ipxact:bitOffset>
+							<ipxact:bitWidth>1</ipxact:bitWidth>
+							<ipxact:access>read-write</ipxact:access>
+							<ipxact:resets>
+								<ipxact:reset>
+									<ipxact:value>0</ipxact:value>
+								</ipxact:reset>
+							</ipxact:resets>
+						</ipxact:field>
+						
+					</ipxact:register>
+					
+					<ipxact:register>
+
+						<ipxact:name>TL_TEST_MODE</ipxact:name>
+						<ipxact:displayName>TL_TEST_MODE Control</ipxact:displayName>
+						<ipxact:description>???</ipxact:description>
+						<ipxact:addressOffset>'h02DC</ipxact:addressOffset>
+						<ipxact:size>32</ipxact:size>
+						<ipxact:access>read-write</ipxact:access>
+						
+						
+						<ipxact:field>
+							<ipxact:name>tl_test_mode</ipxact:name>
+							<ipxact:displayName></ipxact:displayName>
+							<ipxact:description>tl_test_mode Control</ipxact:description>
+							<ipxact:bitOffset>0</ipxact:bitOffset>
+							<ipxact:bitWidth>2</ipxact:bitWidth>
+							<ipxact:access>read-write</ipxact:access>
+							<ipxact:resets>
+								<ipxact:reset>
+									<ipxact:value>0</ipxact:value>
+								</ipxact:reset>
+							</ipxact:resets>
+						</ipxact:field>
+						
+					</ipxact:register>
+					
+					<ipxact:register>
+
+						<ipxact:name>LMFC_DELAY</ipxact:name>
+						<ipxact:displayName>LMFC_DELAY Control</ipxact:displayName>
+						<ipxact:description>???</ipxact:description>
+						<ipxact:addressOffset>'h02E0</ipxact:addressOffset>
+						<ipxact:size>32</ipxact:size>
+						<ipxact:access>read-write</ipxact:access>
+						
+						
+						<ipxact:field>
+							<ipxact:name>tx_lmfc_delay</ipxact:name>
+							<ipxact:displayName></ipxact:displayName>
+							<ipxact:description>tx_lmfc_delay control</ipxact:description>
+							<ipxact:bitOffset>0</ipxact:bitOffset>
+							<ipxact:bitWidth>5</ipxact:bitWidth>
+							<ipxact:access>read-write</ipxact:access>
+							<ipxact:resets>
+								<ipxact:reset>
+									<ipxact:value>0</ipxact:value>
+								</ipxact:reset>
+							</ipxact:resets>
+						</ipxact:field>
+						
+					</ipxact:register>
+					
+					<ipxact:register>
+
+						<ipxact:name>SYSREF_MAXSHIFT</ipxact:name>
+						<ipxact:displayName>SYSREF_MAXSHIFT Control</ipxact:displayName>
+						<ipxact:description>???</ipxact:description>
+						<ipxact:addressOffset>'h02E4</ipxact:addressOffset>
+						<ipxact:size>32</ipxact:size>
+						<ipxact:access>read-write</ipxact:access>
+						
+						
+						<ipxact:field>
+							<ipxact:name>tx_sysref_max_shift_allowed</ipxact:name>
+							<ipxact:displayName></ipxact:displayName>
+							<ipxact:description>tx_sysref_max_shift_allowed control</ipxact:description>
+							<ipxact:bitOffset>0</ipxact:bitOffset>
+							<ipxact:bitWidth>5</ipxact:bitWidth>
+							<ipxact:access>read-write</ipxact:access>
+							<ipxact:resets>
+								<ipxact:reset>
+									<ipxact:value>0</ipxact:value>
+								</ipxact:reset>
+							</ipxact:resets>
+						</ipxact:field>
+						
+					</ipxact:register>
+					
+				</ipxact:addressBlock>
+
+		</ipxact:memoryMap>
+	</ipxact:memoryMaps>
+
+</ipxact:component>
