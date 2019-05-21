@@ -6,6 +6,7 @@
   "scripts": {
     "nwjs": "~/Develop/nwjs.app/Contents/MacOS/nwjs .",
     "nwjs-sdk": "~/Develop/nwjs-sdk/nwjs.app/Contents/MacOS/nwjs .",
+    "nwjs-sdk-linux": "~/nwjs-sdk/nw .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
