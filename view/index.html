@@ -4,30 +4,35 @@
         <title>IP-XACT.js</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="styles.css">
+
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="styles.css">
+
         <script src="../app/app.js"></script>
         <script src="tabs.js"></script>
     </head>
     <body>
+
+        <header>
+            <table style="width: 100%; vertical-align: middle; height: 60px;">
+                <tr>
+                    <td style="width: 130px; text-align: center;">IP-XACT.js</td>
+                    <td style="text-align: right;">
+                        <form>
+                            <input type="file" name="file" id="file" class="inputfile" />
+                            <label for="file">Choose a file</label>
+                            <input type="button" value="Save" style="margin-right: 10px;"> 
+                        </form>
+                    </td>
+            </table>
+        </header>
+
         <div class="w3-sidebar w3-bar-block w3-light-grey w3-card" style="width:130px">
-            <h5 class="w3-bar-item">Menu</h5>
-            <button class="w3-bar-item w3-button tablink" onclick="openTab(event, 'Load')">Load File</button>
             <button class="w3-bar-item w3-button tablink" onclick="openTab(event, 'Info')">Info</button>
             <button class="w3-bar-item w3-button tablink" onclick="openTab(event, 'Registers')">Registers</button>
         </div>
 
         <div style="margin-left:130px">
-
-            <div id="Load" class="w3-container tab" style="display:none">
-                <h2>Load File</h2>
-                <form action="#">
-                    <div class="input-file-container">  
-                        <input class="input-file" id="my-file" type="file">
-                        <label tabindex="0" for="my-file" class="input-file-trigger" style="display: none;">Select a file...</label>
-                    </div>
-                </form>
-            </div>
 
             <div id="Info" class="w3-container tab" style="display:none">
                 <h2>Info</h2>
@@ -78,22 +83,17 @@
 
             document.querySelector("html").classList.add('js');
 
-            var fileInput = document.querySelector(".input-file"),
-                    button = document.querySelector(".input-file-trigger");
+            var fileInput = document.querySelector(".inputfile");
 
-            button.addEventListener("keydown", function (event) {
-                if (event.keyCode == 13 || event.keyCode == 32) {
-                    fileInput.focus();
-                }
-            });
-            button.addEventListener("click", function (event) {
-                fileInput.focus();
-                return false;
-            });
             fileInput.addEventListener("change", function (event) {
-                filePath = fileInput.files[0].path
-                loadData();
+                try {
+                    filePath = fileInput.files[0].path;
+                } catch (err) {
+                    alert('Empty file!\nDebug:\n' + err);
+                    return;
+                }
                 openTab(event, 'Info');
+                loadData();
             });
 
             ////////////////////////////////////////////////////////////////////
@@ -133,13 +133,14 @@
 
             function populateData(form, xml) {
                 openTab(event, 'Info');
+                document.getElementsByClassName("tablink")[0].classList.add('w3-red');
 
                 var options = {ignoreComment: true, alwaysChildren: true};
                 currentData = convert.xml2js(xml, options);
 
                 //fs.writeFileSync('ipxactTestOut.json', JSON.stringify(currentData, null, 2));
-                
-                
+
+
                 var ipxactType = "ipxact";
                 //var ipxactType = "spirit";
 

@@ -2,7 +2,7 @@
   "name": "ip-xact.js",
   "version": "0.0.1",
   "description": "IP-XACT Editor",
-  "main": "view/index.html",
+  "main": "view/cover.html",
   "scripts": {
     "nwjs": "~/Develop/nwjs.app/Contents/MacOS/nwjs .",
     "nwjs-sdk": "~/Develop/nwjs-sdk/nwjs.app/Contents/MacOS/nwjs .",
@@ -24,6 +24,10 @@
   },
   "homepage": "https://github.com/kpankov/IP-XACT.js#readme",
   "dependencies": {
+    "bootstrap": "^3.4.1",
+    "font-awesome": "^4.7.0",
+    "jquery": "^3.4.1",
+    "less": "^3.9.0",
     "xml-js": "^1.6.11"
   }
 }
