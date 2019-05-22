@@ -23,6 +23,17 @@
     "url": "https://github.com/kpankov/IP-XACT.js/issues"
   },
   "homepage": "https://github.com/kpankov/IP-XACT.js#readme",
+  "window": {
+    "title": "node-webkit demo",
+    "icon": "link.png",
+    "toolbar": true,
+    "frame": true,
+    "width": 800,
+    "height": 500,
+    "position": "mouse",
+    "min_width": 640,
+    "min_height": 480
+  },
   "dependencies": {
     "bootstrap": "^3.4.1",
     "font-awesome": "^4.7.0",
