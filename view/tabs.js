@@ -9,5 +9,9 @@ function openTab(evt, tabName) {
         tablinks[i].className = tablinks[i].className.replace(" w3-red", "");
     }
     document.getElementById(tabName).style.display = "block";
-    evt.currentTarget.className += " w3-red";
+    try {
+        evt.currentTarget.className += " w3-red";
+    } catch (err) {
+        document.getElementsByClassName("tablink")[0].classList.add('w3-red');
+    }
 }
