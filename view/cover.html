@@ -49,7 +49,8 @@
                                 <h1 class="cover-heading">Starting</h1>
                                 <p class="lead">Please choose work mode:</p>
                                 <p class="lead">
-                                    <a href="index.html?mode=new" class="btn btn-lg btn-default">New file</a>&nbsp;&nbsp;&nbsp;or&nbsp;&nbsp;&nbsp;<a href="index.html?mode=open" class="btn btn-lg btn-default">Existing file</a>
+                                    <a href="index.html?mode=new" class="btn btn-lg btn-default">New file</a>&nbsp;&nbsp;&nbsp;or&nbsp;&nbsp;&nbsp;<a href="#" class="btn btn-lg btn-default" id="file-choose">Existing file</a>
+                                <input id="file-input" type="file" name="name" style="display: none;" />
                                 </p>
                             </div>
                         </div>
@@ -71,30 +72,47 @@
                     </div>
 
 
-                        <div class="mastfoot">
-                            <div class="inner">
-                                <p>IP-XACT.js by <a href="http://kpankov.com/" target="_blank">kpankov</a></p>
-                                <p class="icons">
-                                    <a href="https://github.com/kpankov" class="fa fa-github" target="_blank"></a> 
-                                    <a href="https://gitlab.com/kpankov" class="fa fa-gitlab" target="_blank"></a> 
-                                    <a href="https://twitter.com/kspzel" class="fa fa-twitter" target="_blank"></a> 
-                                    <a href="https://www.instagram.com/kpankov_dev/" class="fa fa-instagram" target="_blank"></a> 
-                                    <a href="http://www.linkedin.com/in/konstantin-pankov" class="fa fa-linkedin" target="_blank"></a>
-                                </p>
-                            </div>
+                    <div class="mastfoot">
+                        <div class="inner">
+                            <p>IP-XACT.js by <a href="http://kpankov.com/" target="_blank">kpankov</a></p>
+                            <p class="icons">
+                                <a href="https://github.com/kpankov" class="fa fa-github" target="_blank"></a> 
+                                <a href="https://gitlab.com/kpankov" class="fa fa-gitlab" target="_blank"></a> 
+                                <a href="https://twitter.com/kspzel" class="fa fa-twitter" target="_blank"></a> 
+                                <a href="https://www.instagram.com/kpankov_dev/" class="fa fa-instagram" target="_blank"></a> 
+                                <a href="http://www.linkedin.com/in/konstantin-pankov" class="fa fa-linkedin" target="_blank"></a>
+                            </p>
                         </div>
-
                     </div>
 
                 </div>
 
             </div>
 
-            <!-- Bootstrap core JavaScript
-            ================================================== -->
-            <!-- Placed at the end of the document so the pages load faster -->
-            <script src="../node_modules/jquery/dist/jquery.min.js"></script>
-            <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-            <script src="targetBlankPatch.js"></script>
+        </div>
+
+        <!-- Bootstrap core JavaScript
+        ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+        <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="targetBlankPatch.js"></script>
+        <script>
+            $('#file-choose').on('click', function () {
+                $('#file-input').trigger('click');
+            });
+            
+            var fileInput = document.querySelector("#file-input");
+
+            fileInput.addEventListener("change", function (event) {
+                try {
+                    filePath = fileInput.files[0].path;
+                } catch (err) {
+                    alert('Empty file!\nDebug:\n' + err);
+                    return;
+                }
+                document.location.href = "index.html?mode=open&path=" + filePath;
+            });
+        </script>
     </body>
 </html>
