@@ -49,7 +49,7 @@
                                 <h1 class="cover-heading">Starting</h1>
                                 <p class="lead">Please choose work mode:</p>
                                 <p class="lead">
-                                    <a href="index.html?mode=new" class="btn btn-lg btn-default">New file</a>&nbsp;&nbsp;&nbsp;or&nbsp;&nbsp;&nbsp;<a href="#" class="btn btn-lg btn-default" id="file-choose">Existing file</a>
+                                    <a href="dashboard.html?mode=new" class="btn btn-lg btn-default">New file</a>&nbsp;&nbsp;&nbsp;or&nbsp;&nbsp;&nbsp;<a href="#" class="btn btn-lg btn-default" id="file-choose">Existing file</a>
                                 <input id="file-input" type="file" name="name" style="display: none;" />
                                 </p>
                             </div>
@@ -111,7 +111,7 @@
                     alert('Empty file!\nDebug:\n' + err);
                     return;
                 }
-                document.location.href = "index.html?mode=open&path=" + filePath;
+                document.location.href = "dashboard.html?mode=open&path=" + filePath;
             });
         </script>
     </body>
