@@ -68,7 +68,15 @@ var fileInput = document.querySelector(".inputfile");
 
 ////////////////////////////////////////////////////////////////////
 
+function removeNamespace(string) {
+    if (string.split(':').length == 2) {
+        return string.split(':')[1];
+    } else {
+        console.error("No ':' in string: " + string + ". Can't split.");
+    }
+}
 
+////////////////////////////////////////////////////////////////////
 
 ipxactInfoForm.addEventListener('change', function (event) {
     currentData.elements[0]['elements'].forEach(function (element) {
@@ -163,16 +171,53 @@ function populateData(form, xml) {
                 div.innerHTML = "<h3>fileSet</h3>";
                 var child = document.getElementById('ipxact_filesets_div').appendChild(div);
                 var form = document.createElement('form');
+                form.setAttribute('width', '100%');
+                form.setAttribute('class', 'form-row');
                 child_form = child.appendChild(form);
                 element2.elements.forEach(function (element3) {
-                    console.log(element3.elements[0]);
-                    console.log(element3.name);
-                    console.log(element3.elements[0].text);
-                    if (element3.elements[0].name == ipxactType + ':name') {
-                        var label = document.createElement('label');
-                        label.innerHTML = element3.elements[0].text;
-                        child_form.appendChild(label);
+                    switch (removeNamespace(element3.name)) {
+                        case "name":
+                            var label_name = document.createElement('input');
+                            label_name.setAttribute('type', 'text');
+                            label_name.setAttribute('value', element3.elements[0].text);
+                            label_name.innerHTML = element3.elements[0].text;
+                            child_form.appendChild(label_name);
+                            break;
+                        case "displayName":
+                            var label_name = document.createElement('input');
+                            label_name.setAttribute('type', 'text');
+                            label_name.setAttribute('value', element3.elements[0].text);
+                            label_name.innerHTML = element3.elements[0].text;
+                            child_form.appendChild(label_name);
+                            break;
+                        case "description":
+                            var label_name = document.createElement('input');
+                            label_name.setAttribute('type', 'text');
+                            label_name.setAttribute('value', element3.elements[0].text);
+                            label_name.innerHTML = element3.elements[0].text;
+                            child_form.appendChild(label_name);
+                            break;
+                        case "group":
+                            var label_name = document.createElement('input');
+                            label_name.setAttribute('type', 'text');
+                            label_name.setAttribute('value', element3.elements[0].text);
+                            label_name.innerHTML = element3.elements[0].text;
+                            child_form.appendChild(label_name);
+                            break;
+                        case "file":
+                            var label = document.createElement('input');
+                            label.setAttribute('type', 'text');
+                            label.setAttribute('value', element3.elements[0].elements[0].text);
+                            label.innerHTML = element3.elements[0].elements[0].text;
+                            label.setAttribute('class', 'form-control-plaintext');
+                            child_form.appendChild(label);
+                            break;
+                        default :
+                            console.error("ERROR: Unknown node \"" + removeNamespace(element3.name) + "\"");
                     }
+
+                    var line = document.createElement('br');
+                    child_form.appendChild(line);
                 });
             });
         }
